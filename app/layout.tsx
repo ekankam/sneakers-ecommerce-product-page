@@ -1,9 +1,9 @@
-import './globals.css'
+import './globals.css';
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -12,7 +12,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className='text-16 w-full max-w-[1440px] min-w-[375px] min-h-screen font-normal bg-custom-white mx-auto'>{children}</body>
+      <body className="mx-auto min-h-screen w-full min-w-[375px] max-w-[1440px] bg-custom-white text-16 font-normal">
+        {children}
+      </body>
     </html>
-  )
+  );
 }

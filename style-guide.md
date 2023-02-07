@@ -34,15 +34,13 @@ The designs were created to the following widths:
 - Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
 - Weights: 400, 700
 
-
 colors:
-custom-white:  hsl(0, 0%, 100%)
+custom-white: hsl(0, 0%, 100%)
 grayish-blue-300: background: hsla(220, 9%, 45%, 1);
 grayish-blue-200: hsl(220, 14%, 75%)
 grayish-blue-100: hsl(223, 64%, 98%, 1)
 dark-blue: hsla(220, 14%, 13%, 1);
-black:  hsl(0, 0%, 0%)
-
+black: hsl(0, 0%, 0%)
 
 h1: 44px 48px;
 ul(li): 15px 26px;
@@ -54,6 +52,3 @@ h1: 28px 32px;
 desc: 15px 25px;
 little title: 12px 14.88px;
 sidebar: 18px 26px
-
-
-

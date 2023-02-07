@@ -4,12 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html,body{
+html,
+body {
   font-family: 'Kumbh Sans', sans-serif;
 }
 
-.nav-item::after{
+.nav-item::after {
   content: '';
   position: absolute;
   left: 0;
@@ -20,13 +20,13 @@ html,body{
   background-color: hsl(26, 100%, 55%, 1);
 }
 
-.nav-item:hover::after{
+.nav-item:hover::after {
   opacity: 1;
   width: 100%;
   transition: 300ms ease-in-out;
 }
 
-@layer components{
+@layer components {
   .nav-item {
     @apply relative cursor-pointer text-15 text-grayish-blue-300 hover:text-dark-blue;
   }
