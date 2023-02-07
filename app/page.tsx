@@ -1,6 +1,10 @@
+import Header from "@/components/Header";
 
-export default function Home() {
+export default function ProductDetail() {
   return (
-    <div className='text-44 text-custom-orange-900 font-bold'>Home</div>
-  )
+    <>
+      <Header />
+      <main>Product Details</main>
+    </>
+  );
 }
