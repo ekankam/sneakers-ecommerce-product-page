@@ -1,14 +1,23 @@
+'use client';
 import Image from 'next/image';
 import { cart, menu, logo, avatar } from '@/assets';
+import { useAppDispatch } from '@/redux/hooks';
+import { modalOpen } from '@/redux/features/modal/modalSlice';
 
 const items = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
 export default function Header() {
+  const dispatch = useAppDispatch();
+
+  const handleModal = () => {
+    dispatch(modalOpen())
+  }
+
   return (
     <header className="h-[112px] w-full px-6 md:px-[100px] lg:px-[165px]">
       <nav className="flex h-full items-center justify-between md:border-b-[1px] md:border-b-slate-200">
         <div className="flex items-center gap-4 md:gap-14">
-          <div className="relative h-4 w-4 cursor-pointer md:hidden">
+          <div className="relative w-4 h-4 cursor-pointer md:hidden" onClick={handleModal}>
             <Image
               src={menu}
               alt="menu icon"
@@ -26,11 +35,9 @@ export default function Header() {
           </div>
           <ul className="hidden gap-8 md:flex md:items-center">
             {items.map((item, index) => (
-              <>
-                <li key={`${item}-${index}`} className="nav-item">
-                  {item}
-                </li>
-              </>
+              <li key={`${item}-${index}`} className="nav-item">
+                {item}
+              </li>
             ))}
           </ul>
         </div>
