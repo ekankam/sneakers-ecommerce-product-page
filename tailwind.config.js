@@ -25,7 +25,7 @@ module.exports = {
         'custom-black': 'hsl(0, 0%, 0%)',
         'custom-orange-900': 'hsl(26, 100%, 55%, 1)',
         'custom-orange-300': 'hsl(25, 100%, 94%)',
-        'overlay': 'hsl(0, 0%, 0%, .75)',
+        overlay: 'hsl(0, 0%, 0%, .75)',
       },
     },
   },
