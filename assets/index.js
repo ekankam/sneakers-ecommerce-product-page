@@ -1,6 +1,6 @@
 import cart from '@/public/images/icon-cart.svg';
 import close from '@/public/images/icon-close.svg';
-import remove from '@/public/images/icon-delete.svg';
+import trash from '@/public/images/icon-delete.svg';
 import menu from '@/public/images/icon-menu.svg';
 import minus from '@/public/images/icon-minus.svg';
 import next from '@/public/images/icon-next.svg';
@@ -21,7 +21,7 @@ import productFourThumbnail from '@/public/images/image-product-4-thumbnail.jpg'
 export {
   cart,
   close,
-  remove,
+  trash,
   menu,
   minus,
   next,

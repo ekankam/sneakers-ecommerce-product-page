@@ -1,3 +1,5 @@
+import Sidebar from '@/components/Sidebar';
+import { SidebarProvider } from '@/context/SidebarContext';
 import './globals.css';
 
 export default function RootLayout({
@@ -13,7 +15,10 @@ export default function RootLayout({
       */}
       <head />
       <body className="mx-auto min-h-screen w-full min-w-[375px] max-w-[1440px] bg-custom-white text-16 font-normal">
-        {children}
+        <SidebarProvider>
+          <Sidebar />
+          {children}
+        </SidebarProvider>
       </body>
     </html>
   );
