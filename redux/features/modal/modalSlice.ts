@@ -3,11 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 interface ModalState {
   isOpen: boolean;
   isLightBoxOpen: boolean;
+  toggleCart: boolean;
 }
 
 const initialState: ModalState = {
   isOpen: false,
   isLightBoxOpen: false,
+  toggleCart: false,
 };
 
 export const modalSlice = createSlice({
@@ -26,10 +28,18 @@ export const modalSlice = createSlice({
     lightBoxClose: (state) => {
       state.isLightBoxOpen = false;
     },
+    toggleCart: (state) => {
+      state.toggleCart = !state.toggleCart;
+    },
   },
 });
 
-export const { modalOpen, modalClose, lightBoxOpen, lightBoxClose } =
-  modalSlice.actions;
+export const {
+  modalOpen,
+  modalClose,
+  lightBoxOpen,
+  lightBoxClose,
+  toggleCart,
+} = modalSlice.actions;
 
 export default modalSlice.reducer;

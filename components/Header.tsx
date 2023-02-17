@@ -2,7 +2,8 @@
 import Image from 'next/image';
 import { cart, menu, logo, avatar } from '@/assets';
 import { useAppDispatch } from '@/redux/hooks';
-import { modalOpen } from '@/redux/features/modal/modalSlice';
+import { modalOpen, toggleCart } from '@/redux/features/modal/modalSlice';
+import Cart from './Cart';
 
 const items = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
@@ -11,6 +12,10 @@ export default function Header() {
 
   const handleModal = () => {
     dispatch(modalOpen());
+  };
+
+  const handleCart = () => {
+    dispatch(toggleCart());
   };
 
   return (
@@ -45,7 +50,10 @@ export default function Header() {
           </ul>
         </div>
         <div className="flex items-center justify-center gap-5 md:gap-[41px]">
-          <div className="relative h-5 w-[21px] cursor-pointer">
+          <div
+            className="relative h-5 w-[21px] cursor-pointer"
+            onClick={handleCart}
+          >
             <Image
               src={cart}
               alt="cart"
@@ -59,6 +67,7 @@ export default function Header() {
               alt="profile picture of a man with lots of curly hair"
             />
           </div>
+          <Cart />
         </div>
       </nav>
     </header>
