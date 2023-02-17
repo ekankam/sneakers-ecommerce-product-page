@@ -20,6 +20,10 @@ body {
   background-color: hsl(26, 100%, 55%, 1);
 }
 
+.primary-btn-shadow {
+  box-shadow: 0px 20px 50px -20px #ff7e1b;
+}
+
 .nav-item:hover::after {
   opacity: 1;
   width: 100%;

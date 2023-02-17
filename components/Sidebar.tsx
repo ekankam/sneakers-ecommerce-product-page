@@ -16,8 +16,12 @@ export default function Sidebar() {
     dispatch(modalClose());
   };
   return (
-    <Overlay className={cn({ '-translate-x-full': !isOpen },
-      { 'translate-x-0': isOpen })}>
+    <Overlay
+      className={cn(
+        { '-translate-x-full': !isOpen },
+        { 'translate-x-0': isOpen }
+      )}
+    >
       <div className="h-screen w-[250px] bg-custom-white p-[25px]">
         <div
           className="relative mb-[53.78px] h-[13.44px] w-[13.44px] cursor-pointer"
@@ -27,7 +31,7 @@ export default function Sidebar() {
         </div>
         <ul className="flex flex-col gap-5">
           {items.map((item, index) => (
-            <li key={index} className="font-bold text-18 text-dark-blue">
+            <li key={index} className="text-18 font-bold text-dark-blue">
               {item}
             </li>
           ))}

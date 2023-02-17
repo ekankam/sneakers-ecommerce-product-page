@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <main className="px-6 md:px-[100px] lg:px-[165px]">
+      <main className="lg:px-[165px]">
         <ProductDetail />
       </main>
     </>

@@ -10,7 +10,7 @@ export default function Overlay({ children, className }: OverlayProps) {
   return (
     <div
       className={cn(
-        'fixed z-50 h-screen w-screen bg-overlay transition-all duration-300 overflow-hidden',
+        'fixed z-50 h-screen w-screen overflow-hidden bg-overlay transition-all duration-300',
         className && className
       )}
     >

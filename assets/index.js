@@ -1,4 +1,5 @@
 import cart from '@/public/images/icon-cart.svg';
+import whiteCart from '@/public/images/icon-cart-white.svg';
 import close from '@/public/images/icon-close.svg';
 import whiteClose from '@/public/images/icon-close-white.svg';
 import trash from '@/public/images/icon-delete.svg';
@@ -33,4 +34,17 @@ export const thumbnails = [
   productFourThumbnail,
 ];
 
-export { cart, close, whiteClose, trash, menu, minus, next, plus, previous, logo, avatar };
+export {
+  cart,
+  whiteCart,
+  close,
+  whiteClose,
+  trash,
+  menu,
+  minus,
+  next,
+  plus,
+  previous,
+  logo,
+  avatar,
+};

@@ -17,7 +17,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="mx-auto min-h-screen w-full min-w-[375px] max-w-[1440px] bg-custom-white text-16 font-normal">
+      <body className="mx-auto mb-4 min-h-screen w-full min-w-[375px] max-w-[1440px] bg-custom-white text-16 font-normal">
         <Provider store={store}>
           <Sidebar />
           <LightBox />

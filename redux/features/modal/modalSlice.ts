@@ -25,10 +25,11 @@ export const modalSlice = createSlice({
     },
     lightBoxClose: (state) => {
       state.isLightBoxOpen = false;
-    }
+    },
   },
 });
 
-export const { modalOpen, modalClose, lightBoxOpen, lightBoxClose } = modalSlice.actions;
+export const { modalOpen, modalClose, lightBoxOpen, lightBoxClose } =
+  modalSlice.actions;
 
 export default modalSlice.reducer;
