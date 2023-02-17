@@ -1,5 +1,6 @@
 import cart from '@/public/images/icon-cart.svg';
 import close from '@/public/images/icon-close.svg';
+import whiteClose from '@/public/images/icon-close-white.svg';
 import trash from '@/public/images/icon-delete.svg';
 import menu from '@/public/images/icon-menu.svg';
 import minus from '@/public/images/icon-minus.svg';
@@ -18,23 +19,18 @@ import productTwoThumbnail from '@/public/images/image-product-2-thumbnail.jpg';
 import productThreeThumbnail from '@/public/images/image-product-3-thumbnail.jpg';
 import productFourThumbnail from '@/public/images/image-product-4-thumbnail.jpg';
 
-export {
-  cart,
-  close,
-  trash,
-  menu,
-  minus,
-  next,
-  plus,
-  previous,
-  logo,
-  avatar,
+export const productImages = [
   productOne,
   productTwo,
   productThree,
   productFour,
+];
+
+export const thumbnails = [
   productOneThumbnail,
   productTwoThumbnail,
   productThreeThumbnail,
   productFourThumbnail,
-};
+];
+
+export { cart, close, whiteClose, trash, menu, minus, next, plus, previous, logo, avatar };

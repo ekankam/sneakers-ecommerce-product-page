@@ -10,14 +10,17 @@ export default function Header() {
   const dispatch = useAppDispatch();
 
   const handleModal = () => {
-    dispatch(modalOpen())
-  }
+    dispatch(modalOpen());
+  };
 
   return (
     <header className="h-[112px] w-full px-6 md:px-[100px] lg:px-[165px]">
       <nav className="flex h-full items-center justify-between md:border-b-[1px] md:border-b-slate-200">
         <div className="flex items-center gap-4 md:gap-14">
-          <div className="relative w-4 h-4 cursor-pointer md:hidden" onClick={handleModal}>
+          <div
+            className="relative h-4 w-4 cursor-pointer md:hidden"
+            onClick={handleModal}
+          >
             <Image
               src={menu}
               alt="menu icon"

@@ -1,17 +1,19 @@
 import cn from 'classnames';
-import { useAppSelector } from "@/redux/hooks";
+import { useAppSelector } from '@/redux/hooks';
 
 type OverlayProps = {
   children: React.ReactNode;
-}
+  className?: string;
+};
 
-export default function Overlay({ children }: OverlayProps) {
-  const { isOpen } = useAppSelector(state => state.modal);
+export default function Overlay({ children, className }: OverlayProps) {
   return (
-    <div className={cn('fixed z-50 w-screen min-h-screen bg-overlay transition-all duration-300',
-      { '-translate-x-full': !isOpen },
-      { 'translate-x-0': isOpen }
-    )}>
+    <div
+      className={cn(
+        'fixed z-50 h-screen w-screen bg-overlay transition-all duration-300 overflow-hidden',
+        className && className
+      )}
+    >
       {children}
     </div>
   );

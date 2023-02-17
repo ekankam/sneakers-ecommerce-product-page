@@ -1,4 +1,5 @@
 'use client';
+import LightBox from '@/components/LightBox';
 import Sidebar from '@/components/Sidebar';
 import { store } from '@/redux/store';
 import { Provider } from 'react-redux';
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className="mx-auto min-h-screen w-full min-w-[375px] max-w-[1440px] bg-custom-white text-16 font-normal">
         <Provider store={store}>
           <Sidebar />
+          <LightBox />
           {children}
         </Provider>
       </body>
