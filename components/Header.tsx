@@ -1,13 +1,14 @@
 'use client';
 import Image from 'next/image';
 import { cart, menu, logo, avatar } from '@/assets';
-import { useAppDispatch } from '@/redux/hooks';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { modalOpen, toggleCart } from '@/redux/features/modal/modalSlice';
 import Cart from './Cart';
 
 const items = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
 export default function Header() {
+  const { cart: cartItem } = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
 
   const handleModal = () => {
@@ -23,7 +24,7 @@ export default function Header() {
       <nav className="flex h-full items-center justify-between md:border-b-[1px] md:border-b-slate-200">
         <div className="flex items-center gap-4 md:gap-14">
           <div
-            className="relative h-4 w-4 cursor-pointer md:hidden"
+            className="relative w-4 h-4 cursor-pointer md:hidden"
             onClick={handleModal}
           >
             <Image
@@ -58,8 +59,8 @@ export default function Header() {
               src={cart}
               alt="cart"
               fill
-              style={{ backgroundSize: 'object-fit' }}
             />
+            {cartItem.length > 0 && <span className='absolute -top-2 -right-2 w-[19px] h-[13px] rounded-full bg-custom-orange-900 text-custom-white text-10 font-bold flex items-center justify-center'>{cartItem.length}</span>}
           </div>
           <div className="h-6 w-6 cursor-pointer overflow-hidden rounded-full border-2 border-custom-white md:h-[50px] md:w-[50px] md:hover:border-custom-orange-900">
             <Image

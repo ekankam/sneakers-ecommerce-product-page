@@ -31,6 +31,9 @@ export const modalSlice = createSlice({
     toggleCart: (state) => {
       state.toggleCart = !state.toggleCart;
     },
+    closeCart: (state) => {
+      state.toggleCart = false;
+    }
   },
 });
 
@@ -40,6 +43,7 @@ export const {
   lightBoxOpen,
   lightBoxClose,
   toggleCart,
+  closeCart
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

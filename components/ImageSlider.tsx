@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import cn from 'classnames';
-import { next, previous, productImages, thumbnails } from '@/assets';
+import { productImages, thumbnails } from '@/assets';
 import useImageSlider from '@/hooks/useImageSlider';
 import { useAppDispatch } from '@/redux/hooks';
 import { lightBoxOpen } from '@/redux/features/modal/modalSlice';
