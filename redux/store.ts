@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
   persistReducer,
@@ -16,7 +16,7 @@ import cartReducer from './features/cart/cartSlice';
 
 const persistConfig = {
   key: 'root',
-  storage: AsyncStorage,
+  storage,
 };
 
 export const store = configureStore({
