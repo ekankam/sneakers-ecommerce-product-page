@@ -2,6 +2,7 @@ import cart from '@/public/images/icon-cart.svg';
 import whiteCart from '@/public/images/icon-cart-white.svg';
 import close from '@/public/images/icon-close.svg';
 import whiteClose from '@/public/images/icon-close-white.svg';
+import orangeClose from '@/public/images/icon-close-orange.svg';
 import trash from '@/public/images/icon-delete.svg';
 import menu from '@/public/images/icon-menu.svg';
 import minus from '@/public/images/icon-minus.svg';
@@ -39,6 +40,7 @@ export {
   whiteCart,
   close,
   whiteClose,
+  orangeClose,
   trash,
   menu,
   minus,

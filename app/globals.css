@@ -34,6 +34,10 @@ body {
   transition: 300ms ease-in-out;
 }
 
+#close {
+  fill: red;
+}
+
 @layer components {
   .nav-item {
     @apply relative cursor-pointer text-15 text-grayish-blue-300 hover:text-dark-blue;

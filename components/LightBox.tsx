@@ -6,14 +6,17 @@ import Overlay from './Overlay';
 import useImageSlider from '@/hooks/useImageSlider';
 import {
   next,
+  orangeClose,
   previous,
   productImages,
   thumbnails,
   whiteClose,
 } from '@/assets';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export default function LightBox() {
+  const [isHoverColor, setIsHoverColor] = useState(false);
   const [currentIndex, { goToSlide, handleNextSlide, handlePrevSlide }] =
     useImageSlider(productImages);
   const { isLightBoxOpen } = useAppSelector((state) => state.modal);
@@ -32,8 +35,14 @@ export default function LightBox() {
               <div
                 className="relative h-5 w-5 cursor-pointer"
                 onClick={handleLightBoxClose}
+                onMouseEnter={() => setIsHoverColor(true)}
+                onMouseLeave={() => setIsHoverColor(false)}
               >
-                <Image src={whiteClose} alt="times icon" fill />
+                {isHoverColor ? (
+                  <Image src={orangeClose} alt="times icon" fill />
+                ) : (
+                  <Image src={whiteClose} alt="times icon" fill />
+                )}
               </div>
             </div>
             <div className="relative h-[400px] w-full cursor-pointer">
