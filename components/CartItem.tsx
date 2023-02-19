@@ -14,8 +14,8 @@ export default function CartItem({ product }: any) {
   };
 
   useEffect(() => {
-    dispatch(getTotal())
-  }, [dispatch])
+    dispatch(getTotal());
+  }, [dispatch]);
 
   return (
     <div className="flex items-center gap-4 text-16">
@@ -24,7 +24,7 @@ export default function CartItem({ product }: any) {
       </div>
       <div>
         <p>{product.title}</p>
-        <div className="flex gap-2 item-center">
+        <div className="item-center flex gap-2">
           <p>
             ${product.price} x {product.quantity}
           </p>
