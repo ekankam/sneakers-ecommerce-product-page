@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import Image from 'next/image';
 
 export default function CartItem({ product }: any) {
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cart } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const handleRemoveProduct = () => {

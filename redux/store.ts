@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
@@ -19,11 +19,15 @@ const persistConfig = {
   storage,
 };
 
+const rootReducer = combineReducers({
+  modal: modalReducer,
+  cart: cartReducer,
+});
+
+const persistorReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
-  reducer: {
-    modal: modalReducer,
-    cart: persistReducer(persistConfig, cartReducer),
-  },
+  reducer: persistorReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

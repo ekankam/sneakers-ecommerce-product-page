@@ -8,7 +8,7 @@ import Cart from './Cart';
 const items = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
 export default function Header() {
-  const { cart: cartItem } = useAppSelector((state) => state.cart);
+  const { cart: cartItem } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const handleModal = () => {
@@ -57,7 +57,7 @@ export default function Header() {
           >
             <Image src={cart} alt="cart" fill />
             {cartItem.length > 0 && (
-              <span className="absolute -top-2 -right-2 flex h-[13px] w-[19px] items-center justify-center rounded-full bg-custom-orange-900 text-10 font-bold text-custom-white">
+              <span className="absolute -top-2 -right-2 flex h-[15px] w-[15px] items-center justify-center rounded-full bg-custom-orange-900 text-10 font-bold text-custom-white">
                 {cartItem.length}
               </span>
             )}

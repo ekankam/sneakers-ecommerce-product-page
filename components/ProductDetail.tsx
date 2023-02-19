@@ -23,7 +23,7 @@ const product: ProductItem = {
 };
 
 export default function ProductDetail() {
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cart } = useAppSelector((state: any) => state);
   const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {

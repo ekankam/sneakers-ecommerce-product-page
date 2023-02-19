@@ -1,50 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ProductItem } from '@/type';
 
-type Cart = {
-  cart: ProductItem[] | any;
-  total: number;
-};
-const initialState: Cart = {
-  cart: [],
-  total: 0,
-};
+const initialState: ProductItem[] = [
+  {
+    id: 'sneaker-1',
+    title: 'Fall Limited Edition Sneakers',
+    description: `These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.`,
+    imageUrl: '/images/image-product-1.jpg',
+    price: 125,
+    quantity: 0,
+  },
+];
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemInCart = state.cart.find(
-        (item: any) => item.id === action.payload.id
-      );
+      const itemInCart = state.find((item) => item.id === action.payload.id);
       if (itemInCart) {
         itemInCart.quantity++;
       } else {
-        state.cart.push({ ...action.payload, quantity: 1 });
+        state.push({ ...action.payload, quantity: 1 });
       }
     },
     incrementQuantity: (state, action) => {
-      const product = state.cart.find(
-        (item: any) => item.id === action.payload
-      );
-      product.quantity++;
+      const product = state.find((item) => item.id === action.payload);
+      product!.quantity++;
     },
     decrementQuantity: (state, action) => {
-      const product = state.cart.find(
-        (item: any) => item.id === action.payload
-      );
-      if (product.quantity === 1) {
-        product.quantity = 1;
+      const product = state.find((item) => item.id === action.payload);
+      if (product!.quantity === 1) {
+        product!.quantity = 1;
       } else {
-        product.quantity--;
+        product!.quantity--;
       }
     },
     removeItem: (state, action) => {
-      const removeProduct = state.cart.filter(
-        (item: any) => item.id !== action.payload
+      const productIndex = state.findIndex(
+        (item) => item.id === action.payload
       );
-      state.cart = removeProduct;
+
+      if (productIndex !== -1) {
+        state.splice(productIndex, 1);
+      }
     },
   },
 });

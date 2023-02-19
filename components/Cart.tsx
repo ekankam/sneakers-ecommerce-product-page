@@ -7,7 +7,7 @@ import { closeCart } from '@/redux/features/modal/modalSlice';
 
 export default function Cart() {
   const { toggleCart } = useAppSelector((state) => state.modal);
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cart } = useAppSelector((state) => state);
 
   const dispatch = useAppDispatch();
 
