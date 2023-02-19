@@ -1,7 +1,6 @@
 'use client';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from '@/redux/store';
+import { store } from '@/redux/store';
 import LightBox from '@/components/LightBox';
 import Sidebar from '@/components/Sidebar';
 import './globals.css';
@@ -16,11 +15,9 @@ export default function RootLayout({
       <head />
       <body className="mx-auto mb-4 min-h-screen w-full min-w-[375px] max-w-[1440px] bg-custom-white text-16 font-normal">
         <Provider store={store}>
-          <PersistGate persistor={persistor}>
-            <Sidebar />
-            <LightBox />
-            {children}
-          </PersistGate>
+          <Sidebar />
+          <LightBox />
+          {children}
         </Provider>
       </body>
     </html>

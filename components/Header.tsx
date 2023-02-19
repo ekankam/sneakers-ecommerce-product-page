@@ -8,7 +8,7 @@ import Cart from './Cart';
 const items = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
 export default function Header() {
-  const { cart: cartItem } = useAppSelector((state) => state);
+  const { cart: cartItem } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
   const handleModal = () => {
@@ -24,7 +24,7 @@ export default function Header() {
       <nav className="flex h-full items-center justify-between md:border-b-[1px] md:border-b-slate-200">
         <div className="flex items-center gap-4 md:gap-14">
           <div
-            className="relative h-4 w-4 cursor-pointer md:hidden"
+            className="relative w-4 h-4 cursor-pointer md:hidden"
             onClick={handleModal}
           >
             <Image

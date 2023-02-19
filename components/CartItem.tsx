@@ -1,25 +1,21 @@
 'use client';
 import { trash } from '@/assets';
-import { removeItem } from '@/redux/features/cart/cartSlice';
+import { removeItem, getTotal } from '@/redux/features/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 export default function CartItem({ product }: any) {
-  const { cart } = useAppSelector((state) => state);
+  const { totalAmount } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
   const handleRemoveProduct = () => {
     dispatch(removeItem(product.id));
   };
 
-  const getTotal = () => {
-    let totalPrice = 0;
-    cart.map((item: any) => {
-      totalPrice += item.price * item.quantity;
-    });
-
-    return totalPrice;
-  };
+  useEffect(() => {
+    dispatch(getTotal())
+  }, [dispatch])
 
   return (
     <div className="flex items-center gap-4 text-16">
@@ -28,11 +24,11 @@ export default function CartItem({ product }: any) {
       </div>
       <div>
         <p>{product.title}</p>
-        <div className="item-center flex gap-2">
+        <div className="flex gap-2 item-center">
           <p>
             ${product.price} x {product.quantity}
           </p>
-          <p className="font-bold">{getTotal()}</p>
+          <p className="font-bold">${totalAmount}</p>
         </div>
       </div>
       <div

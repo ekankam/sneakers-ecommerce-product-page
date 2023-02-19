@@ -1,56 +1,85 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ProductItem } from '@/type';
 
-const initialState: ProductItem[] = [
-  {
-    id: 'sneaker-1',
-    title: 'Fall Limited Edition Sneakers',
-    description: `These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they’ll withstand everything
-          the weather can offer.`,
-    imageUrl: '/images/image-product-1.jpg',
-    price: 125,
-    quantity: 0,
-  },
-];
+interface cartInitialState {
+  cart: any,
+  totalAmount: number,
+}
+
+const getItemFromLocalStorage = localStorage.getItem('cart');
+const cartItems = typeof window !== undefined && getItemFromLocalStorage !== null ? JSON.parse(getItemFromLocalStorage) : [];
+
+const setItemsToLocalStorage = (value: any) => {
+  if (typeof window !== undefined) {
+    localStorage.setItem('cart', JSON.stringify(value));
+  }
+}
+
+const initialState: cartInitialState = {
+  cart: cartItems,
+  totalAmount: 0,
+}
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemInCart = state.find((item) => item.id === action.payload.id);
+      const itemInCart = state.cart.find((item: ProductItem) => item.id === action.payload.id);
       if (itemInCart) {
         itemInCart.quantity++;
       } else {
-        state.push({ ...action.payload, quantity: 1 });
+        state.cart.push({ ...action.payload, quantity: 1 });
       }
+      setItemsToLocalStorage(state.cart);
     },
+
     incrementQuantity: (state, action) => {
-      const product = state.find((item) => item.id === action.payload);
-      product!.quantity++;
-    },
-    decrementQuantity: (state, action) => {
-      const product = state.find((item) => item.id === action.payload);
-      if (product!.quantity === 1) {
-        product!.quantity = 1;
-      } else {
-        product!.quantity--;
+      const product = state.cart.find((item: ProductItem) => item.id === action.payload);
+
+      if (product) {
+        product.quantity++;
       }
+      setItemsToLocalStorage(state.cart)
     },
+
+    decrementQuantity: (state, action) => {
+      const product = state.cart.find((item: ProductItem) => item.id === action.payload);
+      if (product.quantity === 1) {
+        product.quantity = 1;
+      } else {
+        product.quantity--;
+      }
+      setItemsToLocalStorage(state.cart)
+    },
+
     removeItem: (state, action) => {
-      const productIndex = state.findIndex(
-        (item) => item.id === action.payload
+      const productIndex = state.cart.findIndex(
+        (item: ProductItem) => item.id === action.payload
       );
 
       if (productIndex !== -1) {
-        state.splice(productIndex, 1);
+        state.cart.splice(productIndex, 1);
       }
+      setItemsToLocalStorage(state.cart);
     },
+
+    getTotal: (state) => {
+      let { total } = state.cart.reduce((cartTotal: any, cartItems: any) => {
+        const { price, quantity } = cartItems;
+        const itemTotal = price * quantity;
+        cartTotal.total += itemTotal;
+        return cartTotal;
+      }, { total: 0 });
+
+      state.totalAmount = total;
+
+    }
+
   },
 });
 
-export const { addToCart, incrementQuantity, decrementQuantity, removeItem } =
+export const { addToCart, incrementQuantity, decrementQuantity, removeItem, getTotal } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
