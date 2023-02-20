@@ -23,6 +23,7 @@ Your users should be able to:
 - TailwindCSS
 - Typescript
 - Redux Toolkit
+- Redux Persist
 
 ## Desktop View
 
