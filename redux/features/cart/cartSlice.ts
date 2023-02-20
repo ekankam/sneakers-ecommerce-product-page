@@ -6,24 +6,8 @@ interface cartInitialState {
   totalAmount: number;
 }
 
-const checkWindow = (action: any) => {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-  return action;
-};
-
-const getItemFromLocalStorage = localStorage.getItem('cart');
-const cartItems = checkWindow(
-  getItemFromLocalStorage !== null ? JSON.parse(getItemFromLocalStorage) : []
-);
-
-const setItemsToLocalStorage = (value: any) => {
-  return checkWindow(localStorage.setItem('cart', JSON.stringify(value)));
-};
-
 const initialState: cartInitialState = {
-  cart: cartItems,
+  cart: [],
   totalAmount: 0,
 };
 
@@ -40,7 +24,6 @@ export const cartSlice = createSlice({
       } else {
         state.cart.push({ ...action.payload, quantity: 1 });
       }
-      setItemsToLocalStorage(state.cart);
     },
 
     incrementQuantity: (state, action) => {
@@ -51,7 +34,6 @@ export const cartSlice = createSlice({
       if (product) {
         product.quantity++;
       }
-      setItemsToLocalStorage(state.cart);
     },
 
     decrementQuantity: (state, action) => {
@@ -63,7 +45,6 @@ export const cartSlice = createSlice({
       } else {
         product.quantity--;
       }
-      setItemsToLocalStorage(state.cart);
     },
 
     removeItem: (state, action) => {
@@ -74,7 +55,6 @@ export const cartSlice = createSlice({
       if (productIndex !== -1) {
         state.cart.splice(productIndex, 1);
       }
-      setItemsToLocalStorage(state.cart);
     },
 
     getTotal: (state) => {
